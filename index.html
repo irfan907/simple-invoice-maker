@@ -12,6 +12,7 @@
             --dark-color: #333;
             --success-color: #28a745;
             --border-color: #ddd;
+            --muted-color: #6f7782;
         }
         
         * {
@@ -24,41 +25,41 @@
         body {
             background-color: #f9f9f9;
             color: var(--dark-color);
-            line-height: 1.6;
-            padding: 20px;
+            line-height: 1.45;
+            padding: 16px;
         }
         
         .container {
             max-width: 1200px;
             margin: 0 auto;
             background: white;
-            padding: 20px;
-            border-radius: 8px;
-            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            padding: 18px;
+            border-radius: 10px;
+            box-shadow: 0 2px 12px rgba(0, 0, 0, 0.08);
         }
         
         header {
             text-align: center;
-            margin-bottom: 30px;
-            padding-bottom: 20px;
+            margin-bottom: 18px;
+            padding-bottom: 14px;
             border-bottom: 1px solid var(--border-color);
         }
         
         h1 {
             color: var(--primary-color);
-            margin-bottom: 10px;
+            margin-bottom: 6px;
         }
         
         .invoice-controls {
             display: flex;
             justify-content: space-between;
-            margin-bottom: 20px;
+            margin-bottom: 16px;
             flex-wrap: wrap;
-            gap: 10px;
+            gap: 8px;
         }
         
         button {
-            padding: 10px 15px;
+            padding: 9px 13px;
             background-color: var(--primary-color);
             color: white;
             border: none;
@@ -82,8 +83,8 @@
         .invoice-form {
             display: grid;
             grid-template-columns: 1fr 1fr;
-            gap: 20px;
-            margin-bottom: 30px;
+            gap: 16px;
+            margin-bottom: 18px;
         }
         
         @media (max-width: 768px) {
@@ -93,18 +94,41 @@
         }
         
         .form-section {
-            margin-bottom: 20px;
+            margin-bottom: 16px;
+            padding: 14px;
+            border: 1px solid var(--border-color);
+            border-radius: 8px;
+            background: #fff;
         }
         
         .form-section h3 {
-            margin-bottom: 15px;
+            margin-bottom: 12px;
             color: var(--primary-color);
             padding-bottom: 5px;
             border-bottom: 1px solid var(--border-color);
         }
+
+        .section-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .section-header h3 {
+            margin-bottom: 0;
+            padding-bottom: 0;
+            border-bottom: 0;
+        }
+
+        .section-note {
+            margin-top: 6px;
+            color: var(--muted-color);
+            font-size: 0.92rem;
+        }
         
         .form-group {
-            margin-bottom: 15px;
+            margin-bottom: 12px;
         }
         
         label {
@@ -115,25 +139,47 @@
         
         input, textarea {
             width: 100%;
-            padding: 10px;
+            padding: 9px 10px;
             border: 1px solid var(--border-color);
             border-radius: 4px;
-            font-size: 16px;
+            font-size: 14px;
         }
         
         textarea {
-            min-height: 100px;
+            min-height: 84px;
             resize: vertical;
+        }
+
+        #fromName,
+        #toName {
+            font-weight: 700;
+        }
+
+        #fromDetails,
+        #toDetails {
+            min-height: 94px;
+        }
+
+        .invoice-details {
+            display: grid;
+            grid-template-columns: repeat(4, minmax(0, 1fr));
+            gap: 12px;
+        }
+
+        @media (max-width: 768px) {
+            .invoice-details {
+                grid-template-columns: 1fr;
+            }
         }
         
         table {
             width: 100%;
             border-collapse: collapse;
-            margin-bottom: 20px;
+            margin-bottom: 14px;
         }
         
         th, td {
-            padding: 12px 15px;
+            padding: 10px 12px;
             text-align: left;
             border-bottom: 1px solid var(--border-color);
         }
@@ -158,32 +204,69 @@
         .actions {
             text-align: center;
         }
+
+        .items-section {
+            margin-bottom: 18px;
+        }
+
+        .items-section .section-header {
+            margin-bottom: 8px;
+        }
+
+        .items-section .section-note {
+            margin-top: 0;
+            margin-bottom: 10px;
+        }
+
+        .items-section table input {
+            font-size: 13px;
+            padding: 6px 8px;
+        }
+
+        .items-section button {
+            padding: 6px 10px;
+        }
         
         .summary {
             display: grid;
             grid-template-columns: 2fr 1fr;
-            gap: 20px;
-            margin-top: 30px;
+            gap: 16px;
+            margin-top: 20px;
         }
         
         .notes {
-            padding: 15px;
+            padding: 14px;
             background-color: var(--light-color);
-            border-radius: 4px;
+            border-radius: 8px;
         }
         
         .totals {
-            padding: 15px;
+            padding: 14px;
             background-color: var(--light-color);
-            border-radius: 4px;
+            border-radius: 8px;
         }
         
         .total-row {
             display: flex;
             justify-content: space-between;
+            align-items: center;
+            gap: 10px;
             margin-bottom: 10px;
             padding-bottom: 5px;
             border-bottom: 1px solid var(--border-color);
+        }
+
+        .total-input {
+            width: 96px;
+            display: inline-block;
+            margin-right: 8px;
+            text-align: right;
+        }
+
+        .inline-value {
+            min-width: 72px;
+            text-align: right;
+            font-variant-numeric: tabular-nums;
         }
         
         .grand-total {
@@ -196,17 +279,17 @@
         }
         
         .saved-invoices {
-            margin-top: 40px;
+            margin-top: 28px;
         }
         
         .invoice-list {
-            margin-top: 20px;
+            margin-top: 14px;
         }
         
         .invoice-item {
-            padding: 15px;
+            padding: 12px 14px;
             background-color: var(--light-color);
-            margin-bottom: 10px;
+            margin-bottom: 8px;
             border-radius: 4px;
             display: flex;
             justify-content: space-between;
@@ -228,8 +311,8 @@
         
         footer {
             text-align: center;
-            margin-top: 40px;
-            padding-top: 20px;
+            margin-top: 28px;
+            padding-top: 16px;
             border-top: 1px solid var(--border-color);
             color: #777;
         }
@@ -245,7 +328,6 @@
         <div class="invoice-controls">
             <div>
                 <button id="newInvoice">New Invoice</button>
-                <button id="addItem">Add Item</button>
             </div>
             <div>
                 <button id="saveInvoice">Save Invoice</button>
@@ -257,40 +339,24 @@
             <div class="form-section">
                 <h3>From</h3>
                 <div class="form-group">
-                    <label for="fromName">Name</label>
+                    <label for="fromName">Company Name</label>
                     <input type="text" id="fromName" placeholder="Your Name/Company">
                 </div>
                 <div class="form-group">
-                    <label for="fromAddress">Address</label>
-                    <textarea id="fromAddress" placeholder="Your Address"></textarea>
-                </div>
-                <div class="form-group">
-                    <label for="fromEmail">Email</label>
-                    <input type="email" id="fromEmail" placeholder="Your Email">
-                </div>
-                <div class="form-group">
-                    <label for="fromPhone">Phone</label>
-                    <input type="tel" id="fromPhone" placeholder="Your Phone Number">
+                    <label for="fromDetails">Company Details</label>
+                    <textarea id="fromDetails" placeholder="Address\nEmail\nPhone"></textarea>
                 </div>
             </div>
             
             <div class="form-section">
                 <h3>Bill To</h3>
                 <div class="form-group">
-                    <label for="toName">Client Name</label>
+                    <label for="toName">Customer Name</label>
                     <input type="text" id="toName" placeholder="Client Name">
                 </div>
                 <div class="form-group">
-                    <label for="toAddress">Client Address</label>
-                    <textarea id="toAddress" placeholder="Client Address"></textarea>
-                </div>
-                <div class="form-group">
-                    <label for="toEmail">Client Email</label>
-                    <input type="email" id="toEmail" placeholder="Client Email">
-                </div>
-                <div class="form-group">
-                    <label for="toPhone">Client Phone</label>
-                    <input type="tel" id="toPhone" placeholder="Client Phone Number">
+                    <label for="toDetails">Customer Details</label>
+                    <textarea id="toDetails" placeholder="Address\nEmail\nPhone"></textarea>
                 </div>
             </div>
         </div>
@@ -302,6 +368,10 @@
                     <label for="invoiceNumber">Invoice #</label>
                     <input type="text" id="invoiceNumber" placeholder="Invoice Number">
                 </div>
+                    <div class="form-group">
+                        <label for="currency">Currency</label>
+                        <input type="text" id="currency" placeholder="£">
+                    </div>
                 <div class="form-group">
                     <label for="invoiceDate">Date</label>
                     <input type="date" id="invoiceDate">
@@ -313,8 +383,12 @@
             </div>
         </div>
         
-        <div class="form-section">
-            <h3>Items</h3>
+        <div class="form-section items-section">
+            <div class="section-header">
+                <h3>Items</h3>
+                <button id="addItem">Add Item</button>
+            </div>
+            <div class="section-note">Use the description field to list the item or service details.</div>
             <table id="itemsTable">
                 <thead>
                     <tr>
@@ -330,7 +404,7 @@
                         <td><input type="text" class="item-desc" placeholder="Item description"></td>
                         <td><input type="number" class="item-qty" value="1" min="1"></td>
                         <td><input type="number" class="item-price" value="0.00" min="0" step="0.01"></td>
-                        <td class="item-total">0.00</td>
+                        <td class="item-total" data-amount="0">0.00</td>
                         <td class="actions"><button class="remove-item">×</button></td>
                     </tr>
                 </tbody>
@@ -367,6 +441,17 @@
                     <span>Total:</span>
                     <span id="grandTotal">0.00</span>
                 </div>
+                <div class="total-row">
+                    <span>Paid Amount:</span>
+                    <span>
+                        <input type="number" id="paidAmount" value="0" min="0" step="0.01" class="total-input">
+                        <span id="paidAmountDisplay" class="inline-value">0.00</span>
+                    </span>
+                </div>
+                <div class="total-row">
+                    <span>Due Amount:</span>
+                    <span id="dueAmount" class="inline-value">0.00</span>
+                </div>
             </div>
         </div>
         
@@ -386,14 +471,11 @@
         document.addEventListener('DOMContentLoaded', function() {
             // DOM Elements
             const fromName = document.getElementById('fromName');
-            const fromAddress = document.getElementById('fromAddress');
-            const fromEmail = document.getElementById('fromEmail');
-            const fromPhone = document.getElementById('fromPhone');
+            const fromDetails = document.getElementById('fromDetails');
             const toName = document.getElementById('toName');
-            const toAddress = document.getElementById('toAddress');
-            const toEmail = document.getElementById('toEmail');
-            const toPhone = document.getElementById('toPhone');
+            const toDetails = document.getElementById('toDetails');
             const invoiceNumber = document.getElementById('invoiceNumber');
+            const currency = document.getElementById('currency');
             const invoiceDate = document.getElementById('invoiceDate');
             const dueDate = document.getElementById('dueDate');
             const itemsBody = document.getElementById('itemsBody');
@@ -404,11 +486,38 @@
             const discount = document.getElementById('discount');
             const discountAmount = document.getElementById('discountAmount');
             const grandTotal = document.getElementById('grandTotal');
+            const paidAmount = document.getElementById('paidAmount');
+            const paidAmountDisplay = document.getElementById('paidAmountDisplay');
+            const dueAmount = document.getElementById('dueAmount');
             const newInvoiceBtn = document.getElementById('newInvoice');
             const addItemBtn = document.getElementById('addItem');
             const saveInvoiceBtn = document.getElementById('saveInvoice');
             const downloadInvoiceBtn = document.getElementById('downloadInvoice');
             const invoiceList = document.getElementById('invoiceList');
+
+            function getSavedInvoices() {
+                return JSON.parse(localStorage.getItem('invoices')) || [];
+            }
+
+            function formatMoney(amount, currencyCode = currency.value) {
+                const numericAmount = parseFloat(amount) || 0;
+                const cleanCurrency = (currencyCode || '').trim();
+                const separator = /^[A-Za-z]{3,5}$/.test(cleanCurrency) ? ' ' : '';
+                return cleanCurrency ? `${cleanCurrency}${separator}${numericAmount.toFixed(2)}` : numericAmount.toFixed(2);
+            }
+
+            function generateUniqueInvoiceNumber() {
+                const existingNumbers = new Set(getSavedInvoices().map(invoice => invoice.details?.number).filter(Boolean));
+                let nextNumber = '';
+
+                do {
+                    nextNumber = 'INV-' + Math.floor(1000 + Math.random() * 9000);
+                } while (existingNumbers.has(nextNumber));
+
+                return nextNumber;
+            }
+
+            const defaultCurrency = '£';
             
             // Set current date as default
             const today = new Date().toISOString().split('T')[0];
@@ -419,8 +528,9 @@
             dueDateObj.setDate(dueDateObj.getDate() + 30);
             dueDate.value = dueDateObj.toISOString().split('T')[0];
             
-            // Generate a random invoice number
-            invoiceNumber.value = 'INV-' + Math.floor(1000 + Math.random() * 9000);
+            // Generate a unique invoice number
+            invoiceNumber.value = generateUniqueInvoiceNumber();
+            currency.value = defaultCurrency;
             
             // Event Listeners
             addItemBtn.addEventListener('click', addItemRow);
@@ -450,6 +560,11 @@
             
             taxRate.addEventListener('input', calculateTotals);
             discount.addEventListener('input', calculateTotals);
+            paidAmount.addEventListener('input', calculateTotals);
+            currency.addEventListener('input', function() {
+                document.querySelectorAll('.item-row').forEach(updateItemTotal);
+                calculateTotals();
+            });
             
             // Functions
             function addItemRow() {
@@ -459,7 +574,7 @@
                     <td><input type="text" class="item-desc" placeholder="Item description"></td>
                     <td><input type="number" class="item-qty" value="1" min="1"></td>
                     <td><input type="number" class="item-price" value="0.00" min="0" step="0.01"></td>
-                    <td class="item-total">0.00</td>
+                    <td class="item-total" data-amount="0">${formatMoney(0)}</td>
                     <td class="actions"><button class="remove-item">×</button></td>
                 `;
                 itemsBody.appendChild(newRow);
@@ -469,32 +584,40 @@
                 const qty = parseFloat(row.querySelector('.item-qty').value) || 0;
                 const price = parseFloat(row.querySelector('.item-price').value) || 0;
                 const total = qty * price;
-                row.querySelector('.item-total').textContent = total.toFixed(2);
+                const totalCell = row.querySelector('.item-total');
+                totalCell.dataset.amount = total.toFixed(2);
+                totalCell.textContent = formatMoney(total);
             }
             
             function calculateTotals() {
                 let subtotal = 0;
                 document.querySelectorAll('.item-row').forEach(row => {
-                    subtotal += parseFloat(row.querySelector('.item-total').textContent) || 0;
+                    subtotal += parseFloat(row.querySelector('.item-total').dataset.amount) || 0;
                 });
                 
-                subtotalEl.textContent = subtotal.toFixed(2);
+                subtotalEl.textContent = formatMoney(subtotal);
                 
                 const tax = subtotal * (parseFloat(taxRate.value) / 100);
-                taxAmount.textContent = tax.toFixed(2);
+                taxAmount.textContent = formatMoney(tax);
                 
                 const discountVal = parseFloat(discount.value) || 0;
-                discountAmount.textContent = discountVal.toFixed(2);
+                discountAmount.textContent = formatMoney(discountVal);
                 
                 const total = subtotal + tax - discountVal;
-                grandTotal.textContent = total.toFixed(2);
+                grandTotal.textContent = formatMoney(total);
+
+                const paidVal = parseFloat(paidAmount.value) || 0;
+                paidAmountDisplay.textContent = formatMoney(paidVal);
+
+                const remaining = Math.max(total - paidVal, 0);
+                dueAmount.textContent = formatMoney(remaining);
             }
             
             function createNewInvoice() {
                 if (confirm('Create a new invoice? Any unsaved changes will be lost.')) {
                     // Reset form fields
                     document.querySelectorAll('input, textarea').forEach(input => {
-                        if (!input.id.includes('taxRate') && !input.id.includes('discount')) {
+                        if (!input.id.includes('taxRate') && !input.id.includes('discount') && !input.id.includes('paidAmount') && input.id !== 'currency') {
                             input.value = '';
                         }
                     });
@@ -505,7 +628,7 @@
                             <td><input type="text" class="item-desc" placeholder="Item description"></td>
                             <td><input type="number" class="item-qty" value="1" min="1"></td>
                             <td><input type="number" class="item-price" value="0.00" min="0" step="0.01"></td>
-                            <td class="item-total">0.00</td>
+                            <td class="item-total" data-amount="0">${formatMoney(0)}</td>
                             <td class="actions"><button class="remove-item">×</button></td>
                         </tr>
                     `;
@@ -515,42 +638,56 @@
                     dueDate.value = dueDateObj.toISOString().split('T')[0];
                     
                     // Generate new invoice number
-                    invoiceNumber.value = 'INV-' + Math.floor(1000 + Math.random() * 9000);
+                    invoiceNumber.value = generateUniqueInvoiceNumber();
+                    currency.value = defaultCurrency;
                     
                     // Reset totals
                     taxRate.value = '0';
                     discount.value = '0';
+                    paidAmount.value = '0';
+                    itemsBody.querySelectorAll('.item-row').forEach(updateItemTotal);
                     calculateTotals();
                 }
             }
             
             function saveInvoice() {
+                let subtotal = 0;
+                document.querySelectorAll('.item-row').forEach(row => {
+                    subtotal += parseFloat(row.querySelector('.item-total').dataset.amount) || 0;
+                });
+
+                const taxRateVal = parseFloat(taxRate.value) || 0;
+                const taxAmountVal = subtotal * (taxRateVal / 100);
+                const discountVal = parseFloat(discount.value) || 0;
+                const totalVal = subtotal + taxAmountVal - discountVal;
+                const paidAmountVal = parseFloat(paidAmount.value) || 0;
+                const dueAmountVal = Math.max(totalVal - paidAmountVal, 0);
+
                 const invoiceData = {
                     from: {
                         name: fromName.value,
-                        address: fromAddress.value,
-                        email: fromEmail.value,
-                        phone: fromPhone.value
+                        details: fromDetails.value
                     },
                     to: {
                         name: toName.value,
-                        address: toAddress.value,
-                        email: toEmail.value,
-                        phone: toPhone.value
+                        details: toDetails.value
                     },
                     details: {
                         number: invoiceNumber.value,
+                        currency: currency.value,
                         date: invoiceDate.value,
                         dueDate: dueDate.value
                     },
                     items: [],
                     notes: invoiceNotes.value,
                     totals: {
-                        subtotal: parseFloat(subtotalEl.textContent),
-                        taxRate: parseFloat(taxRate.value),
-                        taxAmount: parseFloat(taxAmount.textContent),
-                        discount: parseFloat(discount.value),
-                        total: parseFloat(grandTotal.textContent)
+                        subtotal: subtotal,
+                        taxRate: taxRateVal,
+                        taxAmount: taxAmountVal,
+                        discount: discountVal,
+                        total: totalVal,
+                        paidAmount: paidAmountVal,
+                        dueAmount: dueAmountVal
                     }
                 };
                 
@@ -560,13 +697,20 @@
                         description: row.querySelector('.item-desc').value,
                         quantity: parseFloat(row.querySelector('.item-qty').value),
                         price: parseFloat(row.querySelector('.item-price').value),
-                        total: parseFloat(row.querySelector('.item-total').textContent)
+                        total: parseFloat(row.querySelector('.item-total').dataset.amount) || 0
                     });
                 });
                 
                 // Save to localStorage
-                let invoices = JSON.parse(localStorage.getItem('invoices')) || [];
-                invoices.push(invoiceData);
+                let invoices = getSavedInvoices();
+                const existingIndex = invoices.findIndex(invoice => invoice.details?.number === invoiceData.details.number);
+
+                if (existingIndex >= 0) {
+                    invoices[existingIndex] = invoiceData;
+                } else {
+                    invoices.push(invoiceData);
+                }
+
                 localStorage.setItem('invoices', JSON.stringify(invoices));
                 
                 alert('Invoice saved successfully!');
@@ -574,7 +718,7 @@
             }
             
             function loadSavedInvoices() {
-                const invoices = JSON.parse(localStorage.getItem('invoices')) || [];
+                const invoices = getSavedInvoices();
                 invoiceList.innerHTML = '';
                 
                 if (invoices.length === 0) {
@@ -590,7 +734,7 @@
                             <strong>${invoice.details.number}</strong> - 
                             ${invoice.to.name} - 
                             ${new Date(invoice.details.date).toLocaleDateString()} - 
-                            $${invoice.totals.total.toFixed(2)}
+                            ${formatMoney(invoice.totals.total, invoice.details.currency)}
                         </div>
                         <div class="invoice-actions">
                             <button class="load-invoice" data-index="${index}">Load</button>
@@ -617,18 +761,15 @@
             function loadInvoice(invoice) {
                 // Load from data
                 fromName.value = invoice.from.name;
-                fromAddress.value = invoice.from.address;
-                fromEmail.value = invoice.from.email;
-                fromPhone.value = invoice.from.phone;
+                fromDetails.value = invoice.from.details || '';
                 
                 // Load to data
                 toName.value = invoice.to.name;
-                toAddress.value = invoice.to.address;
-                toEmail.value = invoice.to.email;
-                toPhone.value = invoice.to.phone;
+                toDetails.value = invoice.to.details || '';
                 
                 // Load details
                 invoiceNumber.value = invoice.details.number;
+                currency.value = invoice.details.currency || defaultCurrency;
                 invoiceDate.value = invoice.details.date;
                 dueDate.value = invoice.details.dueDate;
                 
@@ -641,7 +782,7 @@
                         <td><input type="text" class="item-desc" value="${item.description}"></td>
                         <td><input type="number" class="item-qty" value="${item.quantity}" min="1"></td>
                         <td><input type="number" class="item-price" value="${item.price}" min="0" step="0.01"></td>
-                        <td class="item-total">${item.total.toFixed(2)}</td>
+                        <td class="item-total" data-amount="${item.total}">${formatMoney(item.total, invoice.details.currency)}</td>
                         <td class="actions"><button class="remove-item">×</button></td>
                     `;
                     itemsBody.appendChild(row);
@@ -651,12 +792,10 @@
                 invoiceNotes.value = invoice.notes;
                 taxRate.value = invoice.totals.taxRate;
                 discount.value = invoice.totals.discount;
-                
-                // Update displayed totals
-                subtotalEl.textContent = invoice.totals.subtotal.toFixed(2);
-                taxAmount.textContent = invoice.totals.taxAmount.toFixed(2);
-                discountAmount.textContent = invoice.totals.discount.toFixed(2);
-                grandTotal.textContent = invoice.totals.total.toFixed(2);
+                paidAmount.value = invoice.totals.paidAmount || 0;
+
+                itemsBody.querySelectorAll('.item-row').forEach(updateItemTotal);
+                calculateTotals();
                 
                 // Scroll to top
                 window.scrollTo(0, 0);
@@ -673,6 +812,29 @@
             
             function downloadInvoice() {
                 // Create a printable version of the invoice
+                const hasDueDate = Boolean(dueDate.value);
+                const hasNotes = invoiceNotes.value.trim().length > 0;
+                const printSubtotal = Array.from(document.querySelectorAll('.item-row')).reduce((sum, row) => {
+                    return sum + (parseFloat(row.querySelector('.item-total').dataset.amount) || 0);
+                }, 0);
+                const printTaxRate = parseFloat(taxRate.value) || 0;
+                const printTaxAmount = printSubtotal * (printTaxRate / 100);
+                const printDiscount = parseFloat(discount.value) || 0;
+                const printTotal = printSubtotal + printTaxAmount - printDiscount;
+                const printPaidAmount = parseFloat(paidAmount.value) || 0;
+                const printDueAmount = Math.max(printTotal - printPaidAmount, 0);
+                const printableCurrency = (currency.value || '').trim();
+                const printableMoney = (amount) => {
+                    const numericAmount = typeof amount === 'number' ? amount : (parseFloat(String(amount).replace(/[^0-9.-]/g, '')) || 0);
+                    const separator = /^[A-Za-z]{3,5}$/.test(printableCurrency) ? ' ' : '';
+                    return printableCurrency ? `${printableCurrency}${separator}${numericAmount.toFixed(2)}` : numericAmount.toFixed(2);
+                };
+                const headerMeta = [
+                    `Invoice # ${invoiceNumber.value}`,
+                    `Date: ${new Date(invoiceDate.value).toLocaleDateString()}`,
+                    hasDueDate ? `Due Date: ${new Date(dueDate.value).toLocaleDateString()}` : null
+                ].filter(Boolean).join(' | ');
+
                 const printWindow = window.open('', '_blank');
                 printWindow.document.write(`
                     <!DOCTYPE html>
@@ -680,9 +842,14 @@
                     <head>
                         <title>Invoice ${invoiceNumber.value}</title>
                         <style>
-                            body { font-family: Arial, sans-serif; line-height: 1.6; color: #333; max-width: 800px; margin: 0 auto; padding: 20px; }
-                            .header { text-align: center; margin-bottom: 30px; }
-                            .details { display: flex; justify-content: space-between; margin-bottom: 30px; }
+                            body { font-family: Arial, sans-serif; line-height: 1.45; color: #333; max-width: 800px; margin: 0 auto; padding: 20px; }
+                            .header { text-align: center; margin-bottom: 18px; }
+                            .header h1 { margin: 0; font-size: 28px; }
+                            .header-meta { margin-top: 6px; font-size: 13px; color: #555; }
+                            .details { display: flex; justify-content: space-between; gap: 16px; margin-bottom: 22px; }
+                            .from, .to { width: 45%; }
+                            .from h3, .to h3 { margin: 0 0 4px; }
+                            .from p, .to p { margin: 0 0 3px; }
                             .from, .to { width: 45%; }
                             table { width: 100%; border-collapse: collapse; margin-bottom: 20px; }
                             th, td { padding: 10px; text-align: left; border-bottom: 1px solid #ddd; }
@@ -691,7 +858,8 @@
                             .totals { width: 300px; }
                             .total-row { display: flex; justify-content: space-between; margin-bottom: 10px; }
                             .grand-total { font-size: 1.2em; font-weight: bold; border-top: 2px solid #ddd; padding-top: 10px; }
-                            .notes { margin-top: 30px; }
+                            .notes { margin-top: 22px; }
+                            .notes h3 { margin-bottom: 6px; }
                             @media print {
                                 body { padding: 0; }
                                 button { display: none; }
@@ -701,25 +869,20 @@
                     <body>
                         <div class="header">
                             <h1>INVOICE</h1>
-                            <p>Number: ${invoiceNumber.value}</p>
-                            <p>Date: ${new Date(invoiceDate.value).toLocaleDateString()} | Due Date: ${new Date(dueDate.value).toLocaleDateString()}</p>
+                            <div class="header-meta">${headerMeta}</div>
                         </div>
                         
                         <div class="details">
                             <div class="from">
                                 <h3>From:</h3>
-                                <p>${fromName.value}</p>
-                                <p>${fromAddress.value.replace(/\n/g, '<br>')}</p>
-                                <p>Email: ${fromEmail.value}</p>
-                                <p>Phone: ${fromPhone.value}</p>
+                                <p><strong>${fromName.value}</strong></p>
+                                <p>${fromDetails.value.replace(/\n/g, '<br>')}</p>
                             </div>
                             
                             <div class="to">
                                 <h3>Bill To:</h3>
-                                <p>${toName.value}</p>
-                                <p>${toAddress.value.replace(/\n/g, '<br>')}</p>
-                                <p>Email: ${toEmail.value}</p>
-                                <p>Phone: ${toPhone.value}</p>
+                                <p><strong>${toName.value}</strong></p>
+                                <p>${toDetails.value.replace(/\n/g, '<br>')}</p>
                             </div>
                         </div>
                         
@@ -733,14 +896,17 @@
                                 </tr>
                             </thead>
                             <tbody>
-                                ${Array.from(document.querySelectorAll('.item-row')).map(row => `
+                                ${Array.from(document.querySelectorAll('.item-row')).map(row => {
+                                    const itemAmount = parseFloat(row.querySelector('.item-total').dataset.amount) || 0;
+                                    const itemPrice = parseFloat(row.querySelector('.item-price').value) || 0;
+                                    return `
                                     <tr>
                                         <td>${row.querySelector('.item-desc').value}</td>
                                         <td>${row.querySelector('.item-qty').value}</td>
-                                        <td>${parseFloat(row.querySelector('.item-price').value).toFixed(2)}</td>
-                                        <td>${row.querySelector('.item-total').textContent}</td>
+                                        <td>${printableMoney(itemPrice)}</td>
+                                        <td>${printableMoney(itemAmount)}</td>
                                     </tr>
-                                `).join('')}
+                                `;}).join('')}
                             </tbody>
                         </table>
                         
@@ -748,27 +914,40 @@
                             <div class="totals">
                                 <div class="total-row">
                                     <span>Subtotal:</span>
-                                    <span>${subtotalEl.textContent}</span>
+                                    <span>${printableMoney(printSubtotal)}</span>
                                 </div>
+                                ${printTaxRate > 0 ? `
                                 <div class="total-row">
                                     <span>Tax (${taxRate.value}%):</span>
-                                    <span>${taxAmount.textContent}</span>
+                                    <span>${printableMoney(printTaxAmount)}</span>
                                 </div>
+                                ` : ''}
+                                ${printDiscount > 0 ? `
                                 <div class="total-row">
                                     <span>Discount:</span>
-                                    <span>${discountAmount.textContent}</span>
+                                    <span>${printableMoney(printDiscount)}</span>
                                 </div>
+                                ` : ''}
                                 <div class="total-row grand-total">
                                     <span>Total:</span>
-                                    <span>${grandTotal.textContent}</span>
+                                    <span>${printableMoney(printTotal)}</span>
+                                </div>
+                                <div class="total-row">
+                                    <span>Paid Amount:</span>
+                                    <span>${printableMoney(printPaidAmount)}</span>
+                                </div>
+                                <div class="total-row">
+                                    <span>Due Amount:</span>
+                                    <span>${printableMoney(printDueAmount)}</span>
                                 </div>
                             </div>
                         </div>
-                        
+                        ${hasNotes ? `
                         <div class="notes">
                             <h3>Notes</h3>
                             <p>${invoiceNotes.value.replace(/\n/g, '<br>')}</p>
                         </div>
+                        ` : ''}
                         
                         <br>
                         <button onclick="window.print()">Print Invoice</button>
@@ -779,6 +958,7 @@
             }
             
             // Initialize
+            document.querySelectorAll('.item-row').forEach(updateItemTotal);
             calculateTotals();
             loadSavedInvoices();
         });
